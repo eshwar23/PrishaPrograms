@@ -1,0 +1,350 @@
+
+/ * program 1  
+Extract individual word from a sentence by extracting individual characters from the given string */
+import java.util.*;
+class Prog_11_Extract_words_from_sentences
+{
+    public static void main()
+    {
+        Scanner sc=new Scanner(System.in);
+        String str,w="";
+        char ch;
+        int i,len;
+        System.out.println("Enter a sentence");
+        str=sc.nextLine();
+        str=str+" ";
+        len=str.length();
+        for(i=0;i<len;i++)
+        {
+            ch=str.charAt(i);
+            if(ch!=' ')// when the extracted character is not a space
+            {
+                w=w+ch;
+            }
+            else// when the character is a space
+            {
+                System.out.println(w);
+                w="";
+            }
+        }
+    }
+
+/*  Algorithm
+ *  step 1 : Declare the variables 
+ *  step 2 : Input String and store str
+ *  step 3 : concate space with string as string + " "
+ *  step 4 : find length
+ *  step 5 : Loop in 0th position to end position
+ *  step 6 : Accumulate word until space in w
+ *  step 7 : print the accumulated word
+ *  step 8 : reinitialize w as w=""
+ *  step 9 : repeat step 6 and step 8
+ 
+ *  
+ *  variable  Type      description
+ *  str       String    to store the string 
+ *  w         String    to accumulate a word
+ *  i         int       loop variable
+ *  ch        character to store individual character
+ *  len       int       to store the length of the string
+ */ 
+*****************************************************************************************************************
+
+/* Program 2
+ * Write a program to input a sentence and print the largest word
+ */
+import java.util.*;
+class Prog_12_Largest_Word
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str,w="",lw="";
+        char ch;
+        int len,i,llw=0,l;
+        System.out.println("Enter a string");
+        str=sc.nextLine();
+        str=str+" ";
+        len=str.length();
+        for(i=0;i<len;i++)
+        {
+            ch=str.charAt(i);
+            if(ch!=' ')
+            {
+                w=w+ch;
+            }
+            else
+            {
+                l=w.length();
+                if(l>llw)
+                {
+                    llw=l;
+                    lw=w;
+                }
+                w="";
+            }
+        }
+        System.out.println("The largest word is :"+lw);
+        System.out.println("The length of the largest word is :"+llw);
+    }
+}
+/*  Algorithm
+ *  step 1 : Declare the variables 
+ *  step 2 : Input String and store str
+ *  step 3 : Assume largest word length llw = 0
+ *  step 3 : concate space with string as string + " "
+ *  step 4 : find length of str
+ *  step 5 : Loop in 0th position to end position
+ *  step 6 : Accumulate word until space
+ *  step 7 : find length of accumulated word
+ *  step 8 : store llw as lenth of accumulated word if the word length > llw
+ *  step 9 : store the length of largest word
+ *  step 10: repeat step 6 to 8
+ *  step 11: print largest word
+ *  step 12: print lenth of largest word
+
+ *  
+ *  variable  Type      description
+ *  str       String    to store the string 
+ *  w         String    to store individual extracted word
+ *  lw        String    to store final largest word
+ *  i         int       loop varible
+ *  len       int       to store the length
+ *  ch        char      to store each character
+ */ 
+    
+
+*****************************************************************************************************************
+
+*Program 3
+ * input  : today is friday
+ * output : friday is today
+ */
+import java.util.*;
+class Prog_13_Reverse_word_print
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str,fstr="",w="";
+        char ch;
+        int len,i;
+        System.out.println("Enter a string ");
+        str=sc.nextLine();
+        str=str+" ";
+        len=str.length();
+        for(i=0;i<len;i++)
+        {
+            ch=str.charAt(i);
+            if(ch!=' ')
+            {
+                w=w+ch;
+            }
+            else
+            {
+                fstr=w+" "+fstr;
+                w="";
+            }
+        }
+        System.out.println("The final reversed string is :");
+        System.out.println(fstr);
+    }
+}
+
+/*  Algorithm
+ *  step 1 : Declare the variables 
+ *  step 2 : Input String and store str
+ *  step 3 : concate space with string as string + " "
+ *  step 4 : find length
+ *  step 5 : Loop in 0th position to end position
+ *  step 6 : Accumulate word until space
+ *  step 7 : concat word in final string as fstr=w+" "+fstr;
+ *  step 8 : empty word accumulated in step 6
+ *  step 9 : Repeat step 6 to step 8
+ *  step 10: Print final string as fstr
+ *  
+ *  variable  Type      description
+ *  str       String    to store the string 
+ *  fstr      String    to store and print the final string
+ *  w         String    to accumulate a word
+ *  i         int       loop variable
+ *  ch        character to store individual character
+ *  len       int       to store the length of the string
+ */ 
+
+
+*****************************************************************************************************************
+
+/* Program 4
+ * Sample input: Mohandas Karamchand Gandhi
+ * Sample output : 
+ *                  Gandhi
+ *                  Karamchand Gandhi
+ *                  Mohandas Karamchand Gandhi
+ */
+
+import java.util.*;
+class Prog_14_printNamePattern
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str, str1;
+        int len,i;
+        char ch;
+        System.out.println("Enter a three word name");
+        str=sc.nextLine();
+        str=" "+ str;
+        len=str.length();
+        for(i=len-1;i>=0;i--)
+        {
+            ch=str.charAt(i);
+            if(ch==' ')
+            {
+                str1=str.substring(i+1);
+                System.out.println(str1);
+            }
+        }
+    }
+}
+/* Algorithm
+ * step 1 : Declare the variables 
+ * step 2 : Input String and store str
+ * step 3 : concate space with string as " "+string
+ * step 4 : find length
+ * step 5 : Loop in reverse order
+ * step 6 : print string using substring() ,each time space is encountered during loop
+ * step 7 : End the loop
+ */
+
+/* Variable     Type    Description
+ * str          String  to input string
+ * len          int     to store the length of the string
+ * i            int     loop variable 
+ * str1         String  to store the extracted string and print
+ */
+
+*****************************************************************************************************************
+
+import java.util.*;
+class BinarySearch
+{
+    public static void main()
+    {
+        Scanner in = new Scanner(System.in);
+        int arr[]=new int[10];
+        int lb,ub,mid=0,sv,i,k=0 ;
+        System.out.println("Enter numbers in Ascending order");
+        for(i=0;i<10;i++)
+        {
+            System.out.println("Enter a number");
+            arr[i]=in.nextInt();
+        }
+        System.out.println("Enter a number to be searched");
+        sv=in.nextInt();
+        lb=0;
+        ub=9;
+        while(lb<=ub)
+        {
+            mid=(lb+ub)/2;
+            if(arr[mid]==sv)
+            {
+                k=1;
+                break;
+            }
+            if (arr[mid]>sv)
+            {
+                ub=mid-1;
+            }
+            if(arr[mid]<sv)
+            {
+                lb=mid+1;
+            }
+        }
+        if(k==0)
+        {
+            System.out.println("Value not found");
+        }
+        else
+        {
+            System.out.println("Value found at "+(mid+1) +" position");
+        }
+    }
+}
+/*
+    Step 1 : Calculate the mid element of the array.
+    Step 2 : Compare the value  with the mid element.
+    Step 3 : If key = middle element, then we return the mid index position for the value found.
+    Step 4 : Else If key > mid element, then the key lies in the right half of the array. 
+    Step 5 : repeat steps 1 to 3 on the lower (right) half of the array.
+    Step 6 : Else key < mid element, then the value is in the upper half of the array.
+    Step 7 : repeat the binary search in the upper half.
+ * 
+ */
+/* variable     type    description
+ * arr[]        array   to store values in the array
+ * ub           int     to store the index of max value in the array
+ * lb           int     to store the index of min value in the array
+ * i            int     loop variable
+ * mid          int     to store the index of mid value of the array
+ * sv           int     to store the search value
+ * k            int     indicates a value is present or not 
+ */
+
+*****************************************************************************************************************
+
+import java.util.*;
+class BubbleSort
+{
+    public static void main()
+    {
+        Scanner in = new Scanner(System.in);
+        int n=5;
+        int arr[]=new int[n];
+        int i , j ,t;
+        for(i=0;i<n;i++)
+        {
+            System.out.println("Enter a number");
+            arr[i]=in.nextInt();
+        }
+        System.out.println("Original values");
+        for(i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" , ");
+        }
+        System.out.println();
+        //bubble sort
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n-1-i;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    t=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=t;
+                }
+            }
+        }
+        System.out.println("values after sort");
+        for(i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" , ");
+        }
+    }
+}
+/* Step 1 : Declare variables 
+ * Step 2 : Store integer variables in array
+ * Step 3 : using iteration loop find the greatest value
+ * Step 4 : compare the adjacent values and 
+ * Step 5 : push the greatest value to the end of array
+ * Step 6 : repeat step 3 and step 5
+ * Step 7 : print the sorted array
+ */
+/* Variable     Type        Description
+ *  i , j       int         loop variable
+ *  arr[]       int array   to store numbers in the array
+ *  n           int         number of values in the array
+ *  t           int         temp variable used for swap
+
+*****************************************************************************************************************
